@@ -23,7 +23,7 @@ $userData['currency_symbol'] = $currencies[$main_currency]['symbol'];
 </style>
 <section class="contain settings">
 
-    <section class="account-section">
+    <section class="account-section" id="budget-section">
         <header>
             <h2><?= translate('monthly_budget', $i18n) ?></h2>
         </header>

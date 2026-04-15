@@ -190,7 +190,7 @@ while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
                         $subscriptionDisplayPrice = formatPrice($subscriptionPrice, $currencies[$subscriptionCurrency]['code'], $currencies);
 
                         ?>
-                        <div class="subscription-item">
+                        <div class="subscription-item subscription-item-clickable" onclick="openQuickEdit(<?= $subscription['id'] ?>)" title="<?= $subscriptionName ?>">
                             <?php
                             if (empty($subscription['logo'])) {
                                 ?>
@@ -264,7 +264,7 @@ while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
                             </div>
                         <?php } ?>
                         <?php if (isset($budget) && $budget > 0) { ?>
-                            <div class="subscription-item thin">
+                            <div class="subscription-item thin subscription-item-clickable" onclick="window.location='settings.php#budget-section'" title="<?= translate('budget', $i18n) ?>">
                                 <p class="subscription-item-title"><?= translate("budget", $i18n) ?></p>
                                 <div class="subscription-item-info">
                                     <p class="subscription-item-value">
@@ -385,6 +385,46 @@ while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
 
 </section>
 
+<section class="subscription-modal" id="quick-edit-modal">
+  <header>
+    <h3 id="quick-edit-title"></h3>
+    <span class="fa-solid fa-xmark close-form" onclick="closeQuickEdit()"></span>
+  </header>
+
+  <div class="form-group-inline" style="align-items:center; margin-bottom:8px;">
+    <img id="quick-edit-logo" src="" alt="" style="height:36px; object-fit:contain; display:none; margin-right:4px;">
+    <span id="quick-edit-name" style="font-size:17px; font-weight:600;"></span>
+  </div>
+
+  <div class="form-group-inline">
+    <input type="number" step="0.01" id="quick-edit-price" placeholder="<?= translate('price', $i18n) ?>" style="flex:1;">
+    <select id="quick-edit-currency" style="flex:1;">
+      <?php foreach ($currencies as $currency): ?>
+        <option value="<?= $currency['id'] ?>"><?= htmlspecialchars($currency['name']) ?></option>
+      <?php endforeach; ?>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="quick-edit-next-payment"><?= translate('next_payment', $i18n) ?></label>
+    <div class="date-wrapper">
+      <input type="date" id="quick-edit-next-payment">
+    </div>
+  </div>
+
+  <div class="form-group-inline grow">
+    <input type="checkbox" id="quick-edit-auto-renew">
+    <label for="quick-edit-auto-renew" class="grow"><?= translate('automatically_renews', $i18n) ?></label>
+  </div>
+
+  <div class="buttons">
+    <input type="button" value="<?= translate('cancel', $i18n) ?>" class="secondary-button thin" onclick="closeQuickEdit()">
+    <input type="button" value="<?= translate('save', $i18n) ?>" class="thin" onclick="saveQuickEdit()">
+  </div>
+  <div style="text-align:center; margin-top:12px;">
+    <a id="quick-edit-full-link" href="#" style="font-size:13px; color:var(--main-color); text-decoration:none; opacity:0.8;"><?= translate('edit_subscription', $i18n) ?> →</a>
+  </div>
+</section>
 
 <script src="scripts/dashboard.js?<?= $version ?>"></script>
 

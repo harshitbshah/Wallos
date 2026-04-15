@@ -518,5 +518,14 @@ if (isset($_GET['add'])) {
   <?php
 }
 
+if (isset($_GET['edit']) && is_numeric($_GET['edit'])) {
+  $editId = (int) $_GET['edit'];
+  ?>
+  <script>
+    openEditSubscription(new Event('click'), <?= $editId ?>);
+  </script>
+  <?php
+}
+
 require_once 'includes/footer.php';
 ?>
