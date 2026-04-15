@@ -426,7 +426,7 @@ while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
   </div>
 </section>
 
-<script src="scripts/dashboard.js?<?= $version ?>"></script>
+<script src="scripts/dashboard.js?<?= $version ?>-1"></script>
 
 <?php
 require_once 'includes/footer.php';
