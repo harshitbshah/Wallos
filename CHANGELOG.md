@@ -1,5 +1,21 @@
 # Changelog
 
+## [4.9.0](https://github.com/harshitbshah/Wallos/compare/v4.8.0...v4.9.0) (2026-04-19)
+
+
+### Features
+
+* make dashboard cards clickable with quick-edit modal ([3205c46](https://github.com/harshitbshah/Wallos/commit/3205c46b944777053172011e18dfcf0c00ef4cc7))
+
+
+### Bug Fixes
+
+* bump dashboard.js cache-buster to force browser refresh ([e9fbbfa](https://github.com/harshitbshah/Wallos/commit/e9fbbfa6fc55f94316713ed3c3f8008d2598ff63))
+* modal hidden behind mobile nav bar on mobile browsers ([fa0aa84](https://github.com/harshitbshah/Wallos/commit/fa0aa842241bea46117e3a246a180b978f87851e))
+* shorten cancellation notification label to prevent wrapping on mobile ([5febed6](https://github.com/harshitbshah/Wallos/commit/5febed614160ba89de8b04bca1ae3463d512dc2f))
+* shorten cancellation notification label to prevent wrapping on mobile ([e6aaedb](https://github.com/harshitbshah/Wallos/commit/e6aaedbaa2c688e26431a5cc197b09de08c0bd7e))
+* shorten cancellation notification label to prevent wrapping on mobile ([b09635f](https://github.com/harshitbshah/Wallos/commit/b09635fd7c32ea4242e6e97607ba130853a53869))
+
 ## [4.8.0](https://github.com/ellite/Wallos/compare/v4.7.3...v4.8.0) (2026-03-23)
 
 
